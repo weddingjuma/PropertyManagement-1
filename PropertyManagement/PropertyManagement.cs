@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿using PropertyManagement.Controllers;
 using Xamarin.Forms;
 
 namespace PropertyManagement
@@ -8,23 +7,7 @@ namespace PropertyManagement
 	{
 		public App()
 		{
-			// The root page of your application
-			var content = new ContentPage
-			{
-				Title = "PropertyManagement",
-				Content = new StackLayout
-				{
-					VerticalOptions = LayoutOptions.Center,
-					Children = {
-						new Label {
-							HorizontalTextAlignment = TextAlignment.Center,
-							Text = "Welcome to Xamarin Forms!"
-						}
-					}
-				}
-			};
-
-			MainPage = new NavigationPage(content);
+			MainPage = new LandingController().Page;
 		}
 
 		protected override void OnStart()

@@ -15,7 +15,7 @@ namespace PropertyManagement.iOS.Renderers
 		{
 			base.OnElementChanged(e);
 
-			if (e.OldElement == null) // perform initial setup
+			if (e.OldElement == null)
 			{
 				var page = e.NewElement as ExtendedPage;
 

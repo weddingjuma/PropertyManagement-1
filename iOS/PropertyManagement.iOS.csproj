@@ -128,6 +128,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\ExtendedPageRenderer.cs" />
+    <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\apartment_1.jpg" />

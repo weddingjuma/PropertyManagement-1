@@ -27,23 +27,31 @@ namespace PropertyManagement.Pages
 				Padding = new Thickness(0, 70, 0, 0)
 			};
 
-			var appDescriptionLargeLabel = new Label
+			var appDescriptionLargeLabel = new ExtendedLabel
 			{
 				HorizontalOptions = LayoutOptions.FillAndExpand,
-				FontFamily = ApplicationSettings.RegularFontFamily,
-				FontSize = 35,
+				FontFamily = ApplicationSettings.ThinFontFamily,
+				FontSize = 38,
 				TextColor = Color.White,
 				HorizontalTextAlignment = TextAlignment.Center,
+				ShadowColor = Color.Black,
+				ShadowBlurRadius = 1.4,
+				ShadowOffsetX = 0.3,
+				ShadowOffsetY = 0.8,
 				Text = "The best way to find, apply for, and manage your new home!"
 			};
 
-			var appDescriptionSmallLabel = new Label
+			var appDescriptionSmallLabel = new ExtendedLabel
 			{
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				FontFamily = ApplicationSettings.RegularFontFamily,
 				FontSize = 17,
 				TextColor = Color.White,
 				HorizontalTextAlignment = TextAlignment.Center,
+				ShadowColor = Color.Black,
+				ShadowBlurRadius = 1.4,
+				ShadowOffsetX = 0.3,
+				ShadowOffsetY = 0.8,
 				Text = "Find a new home, pay rent, see what's happening in the community, and much more."
 			};
 
@@ -61,7 +69,7 @@ namespace PropertyManagement.Pages
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				HeightRequest = 55,
 				BorderRadius = 0,
-				FontFamily = ApplicationSettings.RegularFontFamily,
+				FontFamily = ApplicationSettings.BoldFontFamily,
 				FontSize = 17,
 				TextColor = Color.White,
 				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
@@ -73,7 +81,7 @@ namespace PropertyManagement.Pages
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				HeightRequest = 55,
 				BorderRadius = 0,
-				FontFamily = ApplicationSettings.RegularFontFamily,
+				FontFamily = ApplicationSettings.BoldFontFamily,
 				FontSize = 17,
 				TextColor = Color.White,
 				BackgroundColor = Color.Black.MultiplyAlpha(0.2),

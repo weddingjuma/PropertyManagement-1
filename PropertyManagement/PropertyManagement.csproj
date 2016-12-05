@@ -37,6 +37,7 @@
     <Compile Include="Components\ApplicationContext.cs" />
     <Compile Include="Components\ApplicationSettings.cs" />
     <Compile Include="Renderers\ExtendedPage.cs" />
+    <Compile Include="Renderers\ExtendedLabel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

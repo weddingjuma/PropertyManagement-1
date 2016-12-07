@@ -38,6 +38,10 @@
     <Compile Include="Components\ApplicationSettings.cs" />
     <Compile Include="Renderers\ExtendedPage.cs" />
     <Compile Include="Renderers\ExtendedLabel.cs" />
+    <Compile Include="Controllers\LogInController.cs" />
+    <Compile Include="Pages\LogInPage.cs" />
+    <Compile Include="Renderers\ExtendedFrame.cs" />
+    <Compile Include="Renderers\ExtendedEntry.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

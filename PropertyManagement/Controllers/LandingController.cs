@@ -1,4 +1,5 @@
-﻿using PropertyManagement.Pages;
+﻿using System;
+using PropertyManagement.Pages;
 
 namespace PropertyManagement.Controllers
 {
@@ -7,6 +8,11 @@ namespace PropertyManagement.Controllers
 		public LandingController() : base()
 		{
 			Page = new LandingPage(this);
+		}
+
+		public void OnLogInButtonTapped(object sender, EventArgs e)
+		{
+			Page.Navigation.PushModalAsync(new LogInController().Page);
 		}
 	}
 }

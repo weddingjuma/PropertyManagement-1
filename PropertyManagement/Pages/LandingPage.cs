@@ -75,6 +75,7 @@ namespace PropertyManagement.Pages
 				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
 				Text = "Log In"
 			};
+			logInButton.Clicked += Controller.OnLogInButtonTapped;
 
 			var registerButton = new Button
 			{

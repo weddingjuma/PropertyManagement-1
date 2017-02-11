@@ -174,7 +174,7 @@ namespace PropertyManagement.Pages
 				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
 				Text = "Log In"
 			};
-			//logInButton.Clicked += Controller.OnLogInButtonTapped;
+			logInButton.Clicked += Controller.OnLogInButtonTapped;
 
 			Content = new StackLayout
 			{

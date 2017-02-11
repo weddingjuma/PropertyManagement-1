@@ -131,6 +131,7 @@
     <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
     <Compile Include="Renderers\ExtendedFrameRenderer.cs" />
     <Compile Include="Renderers\ExtendedEntryRenderer.cs" />
+    <Compile Include="Renderers\ExtendedTabbedPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\apartment_1.jpg" />

@@ -10,6 +10,9 @@ namespace PropertyManagement.Pages
 		public MainPage(MainController controller)
 		{
 			Children.Add(ApplicationContext.CommunityController.Page);
+			Children.Add(ApplicationContext.NotificationsController.Page);
+			Children.Add(ApplicationContext.MyHomeController.Page);
+			Children.Add(ApplicationContext.SettingsController.Page);
 		}
 
 		protected override void OnCurrentPageChanged()

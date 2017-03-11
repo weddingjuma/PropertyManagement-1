@@ -58,14 +58,14 @@ namespace PropertyManagement.Pages
 				BackgroundColor = Color.Transparent,
 				FontFamily = ApplicationSettings.RegularFontFamily,
 				FontSize = 15,
-				TextColor = Color.White,
-				PlaceholderColor = Color.White,
+				TextColor = Color.FromHex("7f8c8d"),
+				PlaceholderColor = Color.FromHex("bdc3c7"),
 				Placeholder = "Email"
 			};
 
 			var entryDivider = new BoxView
 			{
-				BackgroundColor = Color.White.MultiplyAlpha(0.1),
+				BackgroundColor = Color.FromHex("f5f5f5"),
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				HeightRequest = 1
 			};
@@ -76,8 +76,8 @@ namespace PropertyManagement.Pages
 				BackgroundColor = Color.Transparent,
 				FontFamily = ApplicationSettings.RegularFontFamily,
 				FontSize = 15,
-				TextColor = Color.White,
-				PlaceholderColor = Color.White,
+				TextColor = Color.FromHex("7f8c8d"),
+				PlaceholderColor = Color.FromHex("bdc3c7"),
 				Placeholder = "Password",
 				IsPassword = true
 			};
@@ -94,7 +94,7 @@ namespace PropertyManagement.Pages
 			{
 				Content = entryLayout,
 				OutlineColor = Color.White,
-				ActualBackgroundColor = Color.White.MultiplyAlpha(0.2),
+				ActualBackgroundColor = Color.White,
 				HasShadow = false,
 				CornerRadius = 2,
 				BorderWidth = 0,

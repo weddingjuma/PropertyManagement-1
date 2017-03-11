@@ -28,7 +28,7 @@ namespace PropertyManagement.iOS.Renderers
 				Layer.ShadowOpacity = (float)frame.ShadowOpacity;
 				Layer.ShadowRadius = (float)frame.ShadowBlurRadius;
 				Layer.ShadowOffset = new CGSize(frame.ShadowOffsetX, frame.ShadowOffsetY);
-				//Layer.MasksToBounds = true;
+				Layer.MasksToBounds = true;
 			}
 		}
 	}

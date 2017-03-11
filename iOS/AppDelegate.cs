@@ -12,6 +12,8 @@ namespace PropertyManagement.iOS
 	{
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
+			UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);
+
 			global::Xamarin.Forms.Forms.Init();
 
 			LoadApplication(new App());

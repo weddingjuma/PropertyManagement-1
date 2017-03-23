@@ -6,20 +6,20 @@ using Xamarin.Forms;
 
 namespace PropertyManagement.Cells
 {
-	public class PostCell : ViewCell
+	public class NotificationCell : ViewCell
 	{
 		private Image ProfileImage { get; set; }
-		private Label DateLabel { get; set; }
-		private Label NameLabel { get; set; }
+		private Image IconImage { get; set; }
 		private Label TextLabel { get; set; }
+		private Label DateLabel { get; set; }
 
-		public PostCell()
+		public NotificationCell()
 		{
 			ProfileImage = new Image
 			{
 				Aspect = Aspect.AspectFill,
-				HeightRequest = 40,
-				WidthRequest = 40
+				HeightRequest = 70,
+				WidthRequest = 70
 			};
 
 			var profileImageFrame = new ExtendedFrame
@@ -27,41 +27,15 @@ namespace PropertyManagement.Cells
 				Content = ProfileImage,
 				Padding = 0,
 				HasShadow = false,
-				CornerRadius = 20,
+				CornerRadius = 35,
 				BorderWidth = 0,
-				HeightRequest = 40,
-				WidthRequest = 40,
+				HeightRequest = 70,
+				WidthRequest = 70,
 				ShadowColor = Color.Transparent,
 				ShadowOpacity = 0,
 				ShadowBlurRadius = 0,
 				ShadowOffsetX = 0,
 				ShadowOffsetY = 0,
-			};
-
-			NameLabel = new Label
-			{
-				FontFamily = ApplicationSettings.RegularFontFamily,
-				FontSize = 15,
-				TextColor = Color.FromHex("7f8c8d")
-			};
-
-			DateLabel = new Label
-			{
-				FontFamily = ApplicationSettings.RegularFontFamily,
-				FontSize = 13,
-				TextColor = Color.FromHex("7f8c8d")
-			};
-
-			var DetailsLayout = new StackLayout
-			{
-				Children = { NameLabel, DateLabel }
-			};
-
-			var headerLayout = new StackLayout
-			{
-				Children = { profileImageFrame, DetailsLayout },
-				Orientation = StackOrientation.Horizontal,
-				Spacing = 10
 			};
 
 			TextLabel = new Label
@@ -80,12 +54,23 @@ namespace PropertyManagement.Cells
 				Padding = 0
 			};
 
+			DateLabel = new Label
+			{
+				FontFamily = ApplicationSettings.RegularFontFamily,
+				FontSize = 13,
+				TextColor = Color.FromHex("7f8c8d")
+			};
+
+			var DetailsLayout = new StackLayout
+			{
+				Children = { textLayout, DateLabel }
+			};
+
 			var frame = new ExtendedFrame
 			{
 				Content = new StackLayout
 				{
-					Children = { headerLayout, textLayout },
-					Spacing = 10
+					Children = { DetailsLayout }
 				},
 				OutlineColor = Color.White,
 				ActualBackgroundColor = Color.White,
@@ -96,9 +81,17 @@ namespace PropertyManagement.Cells
 				Padding = 20
 			};
 
+			var postLayout = new StackLayout
+			{
+				Children = { profileImageFrame, frame },
+				Orientation = StackOrientation.Horizontal,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				Spacing = 10
+			};
+
 			View = new StackLayout
 			{
-				Children = { frame, new BoxView { HeightRequest = 0, WidthRequest = 0 } },
+				Children = { postLayout, new BoxView { HeightRequest = 0, WidthRequest = 0 } },
 				Spacing = 10,
 				Padding = new Thickness(0, 1)
 			};
@@ -108,12 +101,11 @@ namespace PropertyManagement.Cells
 		{
 			base.OnBindingContextChanged();
 
-			var item = BindingContext as PostModel;
+			var item = BindingContext as NotificationModel;
 			if (item != null)
 			{
 				//ProfileImage.Source = $"http://www.wavelinkllc.com/foamlife{item.ImageUrl1}";
-				ProfileImage.Source = ImageSource.FromFile(item.ImageUrl);
-				NameLabel.Text = item.Name;
+				ProfileImage.Source = ImageSource.FromFile(item.ProfileImageUrl);
 				TextLabel.Text = item.Text;
 				DateLabel.Text = Formatter.TimeSince(item.Date);
 			}

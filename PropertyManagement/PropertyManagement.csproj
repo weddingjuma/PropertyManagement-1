@@ -58,6 +58,8 @@
     <Compile Include="Cells\PostCell.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Components\Formatter.cs" />
+    <Compile Include="Cells\NotificationCell.cs" />
+    <Compile Include="Models\NotificationModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

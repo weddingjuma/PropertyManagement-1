@@ -42,6 +42,7 @@
     <Compile Include="Pages\LogInPage.cs" />
     <Compile Include="Renderers\ExtendedFrame.cs" />
     <Compile Include="Renderers\ExtendedEntry.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Components\UserSettings.cs" />
@@ -69,6 +70,10 @@
     <Folder Include="Views\" />
     <Folder Include="Cells\" />
     <Folder Include="Models\" />
+=======
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Pages\RegistrationPage.cs" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

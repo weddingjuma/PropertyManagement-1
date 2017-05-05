@@ -18,8 +18,8 @@ namespace PropertyManagement.Cells
 			ProfileImage = new Image
 			{
 				Aspect = Aspect.AspectFill,
-				HeightRequest = 70,
-				WidthRequest = 70
+				HeightRequest = 50,
+				WidthRequest = 50
 			};
 
 			var profileImageFrame = new ExtendedFrame
@@ -27,15 +27,19 @@ namespace PropertyManagement.Cells
 				Content = ProfileImage,
 				Padding = 0,
 				HasShadow = false,
-				CornerRadius = 35,
+				CornerRadius = 25,
 				BorderWidth = 0,
-				HeightRequest = 70,
-				WidthRequest = 70,
+				HeightRequest = 50,
+				WidthRequest = 50,
+				MinimumWidthRequest = 50,
+				MinimumHeightRequest = 50,
 				ShadowColor = Color.Transparent,
 				ShadowOpacity = 0,
 				ShadowBlurRadius = 0,
 				ShadowOffsetX = 0,
 				ShadowOffsetY = 0,
+				HorizontalOptions = LayoutOptions.Start,
+				VerticalOptions = LayoutOptions.Start
 			};
 
 			TextLabel = new Label
@@ -77,6 +81,7 @@ namespace PropertyManagement.Cells
 				HasShadow = false,
 				CornerRadius = 3,
 				BorderWidth = 0,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				Padding = 20
 			};

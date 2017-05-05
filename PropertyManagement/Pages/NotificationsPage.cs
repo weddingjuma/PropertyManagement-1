@@ -22,7 +22,7 @@ namespace PropertyManagement.Pages
 
 			var subTitleIconImage = new Image
 			{
-				Source = ImageSource.FromFile("community_white"),
+				Source = ImageSource.FromFile("notifications_white"),
 				Aspect = Aspect.AspectFit,
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				HeightRequest = 25,
@@ -36,7 +36,7 @@ namespace PropertyManagement.Pages
 				FontFamily = ApplicationSettings.RegularFontFamily,
 				FontSize = 17,
 				TextColor = Color.White,
-				Text = "Recent Posts"
+				Text = "Most Recent"
 			};
 
 			var subTitleLayout = new StackLayout
@@ -44,7 +44,7 @@ namespace PropertyManagement.Pages
 				Children = { subTitleIconImage, subTitleLabel },
 				Orientation = StackOrientation.Horizontal,
 				Spacing = 10,
-				Padding = new Thickness(0, 0, 0, 10)
+				Padding = new Thickness(0, 0, 0, 20)
 			};
 
 			var headerLayout = new StackLayout

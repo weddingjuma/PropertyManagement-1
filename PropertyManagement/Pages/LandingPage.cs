@@ -88,6 +88,7 @@ namespace PropertyManagement.Pages
 				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
 				Text = "Register"
 			};
+				registerButton.Clicked += Controller.OnRegisterButtonTapped;
 
 			var buttonsDivider = new BoxView
 			{

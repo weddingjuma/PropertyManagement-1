@@ -1,10 +1,298 @@
 ﻿using System;
-namespace PropertyManagement
+using System.Collections.Generic;
+using PropertyManagement.Components;
+using PropertyManagement.Controllers;
+using PropertyManagement.Renderers;
+using Xamarin.Forms;
+
+namespace PropertyManagement.Pages
 {
-	public class RegistrationPage
+	public class RegistrationPage : BasePage<RegistrationController>
 	{
-		public RegistrationPage()
+		public RegistrationPage(RegistrationController controller) : base(controller)
 		{
+			string[] propertyArr = {
+				"Property A", "Property B", "Property C"
+			};
+
+			string[] leaseArr = {
+				"6 Months", "9 Months", "12 Months"
+			};
+
+			BackgroundImage = "apartment_1.jpg";
+			BackgroundGradientStartColor = Color.Green;
+			BackgroundGradientEndColor = Color.Blue;
+
+			var exitIcon = new Image
+			{
+				Source = ImageSource.FromFile("cancel_white"),
+				Aspect = Aspect.AspectFit,
+				HorizontalOptions = LayoutOptions.Start,
+				VerticalOptions = LayoutOptions.Center,
+				HeightRequest = 15,
+				WidthRequest = 15
+			};
+
+			var exitIconTapGestureRecognizer = new TapGestureRecognizer();
+			exitIconTapGestureRecognizer.Tapped += Controller.OnExitIconTapped;
+			exitIcon.GestureRecognizers.Add(exitIconTapGestureRecognizer);
+
+			var titleLabel = new ExtendedLabel
+			{
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
+				VerticalOptions = LayoutOptions.Center,
+				FontFamily = ApplicationSettings.ThinFontFamily,
+				FontSize = 20,
+				TextColor = Color.White,
+				HorizontalTextAlignment = TextAlignment.Center,
+				ShadowColor = Color.Black,
+				ShadowBlurRadius = 1.4,
+				ShadowOffsetX = 0.3,
+				ShadowOffsetY = 0.8,
+				Text = "Register"
+			};
+
+			var titlePlaceholder = new BoxView { WidthRequest = 15 };
+
+			var titleLayout = new StackLayout
+			{
+				Children = { exitIcon, titleLabel, titlePlaceholder },
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				HeightRequest = 50,
+				Orientation = StackOrientation.Horizontal,
+				Padding = 20
+			};
+
+			var firstNameEntry = new ExtendedEntry
+			{
+				HeightRequest = 50,
+				BackgroundColor = Color.Transparent,
+				FontFamily = ApplicationSettings.RegularFontFamily,
+				FontSize = 15,
+				TextColor = Color.FromHex("7f8c8d"),
+				PlaceholderColor = Color.FromHex("bdc3c7"),
+				Placeholder = "First Name"
+			};
+
+			var entry1Divider = new BoxView
+			{
+				BackgroundColor = Color.FromHex("f5f5f5"),
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				HeightRequest = 1
+			};
+
+			var lastNameEntry = new ExtendedEntry
+			{
+				HeightRequest = 50,
+				BackgroundColor = Color.Transparent,
+				FontFamily = ApplicationSettings.RegularFontFamily,
+				FontSize = 15,
+				TextColor = Color.FromHex("7f8c8d"),
+				PlaceholderColor = Color.FromHex("bdc3c7"),
+				Placeholder = "Last Name"
+			};
+
+			var entry2Divider = new BoxView
+			{
+				BackgroundColor = Color.FromHex("f5f5f5"),
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				HeightRequest = 1
+			};
+
+			var emailEntry = new ExtendedEntry
+			{
+				HeightRequest = 50,
+				BackgroundColor = Color.Transparent,
+				FontFamily = ApplicationSettings.RegularFontFamily,
+				FontSize = 15,
+				TextColor = Color.FromHex("7f8c8d"),
+				PlaceholderColor = Color.FromHex("bdc3c7"),
+				Placeholder = "Email"
+			};
+
+			var entry3Divider = new BoxView
+			{
+				BackgroundColor = Color.FromHex("f5f5f5"),
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				HeightRequest = 1
+			};
+
+			var phoneEntry = new ExtendedEntry
+			{
+				HeightRequest = 50,
+				BackgroundColor = Color.Transparent,
+				FontFamily = ApplicationSettings.RegularFontFamily,
+				FontSize = 15,
+				TextColor = Color.FromHex("7f8c8d"),
+				PlaceholderColor = Color.FromHex("bdc3c7"),
+				Placeholder = "Phone Number"
+			};
+
+			var entry4Divider = new BoxView
+			{
+				BackgroundColor = Color.FromHex("f5f5f5"),
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				HeightRequest = 1
+			};
+
+			var unitNumEntry = new ExtendedEntry
+			{
+				HeightRequest = 50,
+				BackgroundColor = Color.Transparent,
+				FontFamily = ApplicationSettings.RegularFontFamily,
+				FontSize = 15,
+				TextColor = Color.FromHex("7f8c8d"),
+				PlaceholderColor = Color.FromHex("bdc3c7"),
+				Placeholder = "Unit Number"
+			};
+
+			var entry5Divider = new BoxView
+			{
+				BackgroundColor = Color.FromHex("f5f5f5"),
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				HeightRequest = 1
+			};
+
+			var rentEntry = new ExtendedEntry
+			{
+				HeightRequest = 50,
+				BackgroundColor = Color.Transparent,
+				FontFamily = ApplicationSettings.RegularFontFamily,
+				FontSize = 15,
+				TextColor = Color.FromHex("7f8c8d"),
+				PlaceholderColor = Color.FromHex("bdc3c7"),
+				Placeholder = "Rent Amount"
+			};
+
+			Picker propertyEntry = new Picker
+			{
+				//HeightRequest = 50,
+				BackgroundColor = Color.Transparent,
+				TextColor = Color.FromHex("7f8c8d"),
+				Title = "Select Property Name",
+				VerticalOptions = LayoutOptions.CenterAndExpand
+			};
+
+			foreach (string property in propertyArr)
+			{
+				propertyEntry.Items.Add(property);
+			}
+
+			Picker leaseEntry = new Picker
+			{
+				//HeightRequest = 50,
+				BackgroundColor = Color.Transparent,
+				TextColor = Color.FromHex("7f8c8d"),
+				Title = " Select Lease Term",
+				VerticalOptions = LayoutOptions.CenterAndExpand
+			};
+
+			foreach (string lease in leaseArr)
+			{
+				leaseEntry.Items.Add(lease);
+			}
+
+			DatePicker dueDateEntry = new DatePicker
+			{
+				Format = "D",
+				BackgroundColor = Color.Transparent,
+				TextColor = Color.FromHex("7f8c8d"),
+				VerticalOptions = LayoutOptions.CenterAndExpand
+			};
+
+			var entryLayout = new StackLayout
+			{
+				Children = { firstNameEntry, entry1Divider, lastNameEntry, entry2Divider,
+					emailEntry, entry3Divider, phoneEntry, entry4Divider, unitNumEntry,
+					entry5Divider, rentEntry, propertyEntry, leaseEntry, dueDateEntry },
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				Spacing = 0,
+				Padding = new Thickness(20, 20, 20, 20)
+
+			};
+
+			var credentialsBackgroundFrame = new ExtendedFrame
+			{
+				Content = entryLayout,
+				OutlineColor = Color.White,
+				ActualBackgroundColor = Color.White,
+				HasShadow = false,
+				CornerRadius = 2,
+				BorderWidth = 0,
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				Padding = 0
+			};
+
+			var credentialsIcon = new Image
+			{
+				Source = ImageSource.FromFile("cloud_key_white"),
+				Aspect = Aspect.AspectFit,
+				HeightRequest = 50,
+				WidthRequest = 50
+			};
+
+			var credentialsIconFrame = new ExtendedFrame
+			{
+				Content = credentialsIcon,
+				OutlineColor = Color.Orange,
+				ActualBackgroundColor = Color.Orange,
+				HasShadow = false,
+				CornerRadius = 30,
+				BorderWidth = 0,
+				HeightRequest = 70,
+				WidthRequest = 70,
+				ShadowColor = Color.Black,
+				ShadowOpacity = 0.3,
+				ShadowBlurRadius = 1,
+				ShadowOffsetX = 0,
+				ShadowOffsetY = 0,
+			};
+
+			var credentialsLayout = new RelativeLayout
+			{
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				HeightRequest = 168
+			};
+
+			credentialsLayout.Children.Add(
+				credentialsBackgroundFrame,
+				Constraint.Constant(25),
+				Constraint.Constant(30),
+				Constraint.RelativeToParent(parent => { return parent.Width - 50; }),
+				Constraint.Constant(460)
+			);
+
+			credentialsLayout.Children.Add(
+				credentialsIconFrame,
+				Constraint.RelativeToParent(parent => { return parent.Width / 2 - 30; }),
+				Constraint.Constant(0),
+				Constraint.Constant(60),
+				Constraint.Constant(60)
+			);
+
+			var registerButton = new Button
+			{
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				VerticalOptions = LayoutOptions.End,
+				HeightRequest = 55,
+				BorderRadius = 0,
+				FontFamily = ApplicationSettings.BoldFontFamily,
+				FontSize = 17,
+				TextColor = Color.White,
+				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
+				Text = "Register"
+			};
+
+			registerButton.Clicked += Controller.OnRegisterButtonTapped;
+
+			Content = new StackLayout
+			{
+				Children = { titleLayout, credentialsLayout, registerButton },
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				Spacing = 0
+			};
 		}
 	}
 }

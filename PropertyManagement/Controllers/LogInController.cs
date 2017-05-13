@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Acr.UserDialogs;
 using PropertyManagement.Components;
 using PropertyManagement.Pages;
+using Xamarin.Forms;
 
 namespace PropertyManagement.Controllers
 {
@@ -18,7 +21,20 @@ namespace PropertyManagement.Controllers
 
 		public void OnLogInButtonTapped(object sender, EventArgs e)
 		{
-			App.Current.MainPage = ApplicationContext.MainController.Page;
+			Task.Run(async() =>
+			{
+				UserDialogs.Instance.ShowLoading("Logging In..", MaskType.Gradient);
+				var response = await UserActions.LogIn(Page.EmailOrPhoneEntry.Text, Page.PasswordEntry.Text);
+				UserDialogs.Instance.HideLoading();
+				if (response.Success)
+				{
+					Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = ApplicationContext.MainController.Page );
+				}
+				else
+				{
+					Device.BeginInvokeOnMainThread(() => Page.DisplayAlert(string.Empty, response.ErrorMessage, "OK") );
+				}
+			});
 		}
 	}
 }

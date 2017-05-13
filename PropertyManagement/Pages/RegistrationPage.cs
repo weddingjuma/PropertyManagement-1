@@ -9,16 +9,20 @@ namespace PropertyManagement.Pages
 {
 	public class RegistrationPage : BasePage<RegistrationController>
 	{
+		public Entry EmailAddressEntry { get; set; }
+		public Entry PhoneNumberEntry { get; set; }
+		public Entry PasswordEntry { get; set; }
+		public Entry PasswordConfirmEntry { get; set; }
+		public Entry FirstNameEntry { get; set; }
+		public Entry LastNameEntry { get; set; }
+		public Entry UnitEntry { get; set; }
+		public Entry RentEntry { get; set; }
+		public Picker PropertyPicker { get; set; }
+		public Picker LeaseMonthsPicker { get; set; }
+		public DatePicker DueDatePicker { get; set; }
+
 		public RegistrationPage(RegistrationController controller) : base(controller)
 		{
-			string[] propertyArr = {
-				"Property A", "Property B", "Property C"
-			};
-
-			string[] leaseArr = {
-				"6 Months", "9 Months", "12 Months"
-			};
-
 			BackgroundImage = "apartment_1.jpg";
 			BackgroundGradientStartColor = Color.Green;
 			BackgroundGradientEndColor = Color.Blue;
@@ -63,7 +67,7 @@ namespace PropertyManagement.Pages
 				Padding = 20
 			};
 
-			var firstNameEntry = new ExtendedEntry
+			FirstNameEntry = new ExtendedEntry
 			{
 				HeightRequest = 50,
 				BackgroundColor = Color.Transparent,
@@ -81,7 +85,7 @@ namespace PropertyManagement.Pages
 				HeightRequest = 1
 			};
 
-			var lastNameEntry = new ExtendedEntry
+			LastNameEntry = new ExtendedEntry
 			{
 				HeightRequest = 50,
 				BackgroundColor = Color.Transparent,
@@ -99,7 +103,7 @@ namespace PropertyManagement.Pages
 				HeightRequest = 1
 			};
 
-			var emailEntry = new ExtendedEntry
+			EmailAddressEntry = new ExtendedEntry
 			{
 				HeightRequest = 50,
 				BackgroundColor = Color.Transparent,
@@ -117,7 +121,7 @@ namespace PropertyManagement.Pages
 				HeightRequest = 1
 			};
 
-			var phoneEntry = new ExtendedEntry
+			PhoneNumberEntry = new ExtendedEntry
 			{
 				HeightRequest = 50,
 				BackgroundColor = Color.Transparent,
@@ -135,7 +139,45 @@ namespace PropertyManagement.Pages
 				HeightRequest = 1
 			};
 
-			var unitNumEntry = new ExtendedEntry
+			PasswordEntry = new ExtendedEntry
+			{
+				IsPassword = true,
+				HeightRequest = 50,
+				BackgroundColor = Color.Transparent,
+				FontFamily = ApplicationSettings.RegularFontFamily,
+				FontSize = 15,
+				TextColor = Color.FromHex("7f8c8d"),
+				PlaceholderColor = Color.FromHex("bdc3c7"),
+				Placeholder = "Password"
+			};
+
+			var entry5Divider = new BoxView
+			{
+				BackgroundColor = Color.FromHex("f5f5f5"),
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				HeightRequest = 1
+			};
+
+			PasswordConfirmEntry = new ExtendedEntry
+			{
+				IsPassword = true,
+				HeightRequest = 50,
+				BackgroundColor = Color.Transparent,
+				FontFamily = ApplicationSettings.RegularFontFamily,
+				FontSize = 15,
+				TextColor = Color.FromHex("7f8c8d"),
+				PlaceholderColor = Color.FromHex("bdc3c7"),
+				Placeholder = "Password (confirm)"
+			};
+
+			var entry6Divider = new BoxView
+			{
+				BackgroundColor = Color.FromHex("f5f5f5"),
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				HeightRequest = 1
+			};
+
+			UnitEntry = new ExtendedEntry
 			{
 				HeightRequest = 50,
 				BackgroundColor = Color.Transparent,
@@ -146,14 +188,14 @@ namespace PropertyManagement.Pages
 				Placeholder = "Unit Number"
 			};
 
-			var entry5Divider = new BoxView
+			var entry7Divider = new BoxView
 			{
 				BackgroundColor = Color.FromHex("f5f5f5"),
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				HeightRequest = 1
 			};
 
-			var rentEntry = new ExtendedEntry
+			RentEntry = new ExtendedEntry
 			{
 				HeightRequest = 50,
 				BackgroundColor = Color.Transparent,
@@ -164,7 +206,7 @@ namespace PropertyManagement.Pages
 				Placeholder = "Rent Amount"
 			};
 
-			Picker propertyEntry = new Picker
+			PropertyPicker = new Picker
 			{
 				//HeightRequest = 50,
 				BackgroundColor = Color.Transparent,
@@ -173,12 +215,12 @@ namespace PropertyManagement.Pages
 				VerticalOptions = LayoutOptions.CenterAndExpand
 			};
 
-			foreach (string property in propertyArr)
+			foreach (string property in controller.Properties.Keys)
 			{
-				propertyEntry.Items.Add(property);
+				PropertyPicker.Items.Add(property);
 			}
 
-			Picker leaseEntry = new Picker
+			LeaseMonthsPicker = new Picker
 			{
 				//HeightRequest = 50,
 				BackgroundColor = Color.Transparent,
@@ -187,12 +229,12 @@ namespace PropertyManagement.Pages
 				VerticalOptions = LayoutOptions.CenterAndExpand
 			};
 
-			foreach (string lease in leaseArr)
+			foreach (string leaseMonth in controller.LeaseMonths.Keys)
 			{
-				leaseEntry.Items.Add(lease);
+				LeaseMonthsPicker.Items.Add(leaseMonth);
 			}
 
-			DatePicker dueDateEntry = new DatePicker
+			DueDatePicker = new DatePicker
 			{
 				Format = "D",
 				BackgroundColor = Color.Transparent,
@@ -202,9 +244,9 @@ namespace PropertyManagement.Pages
 
 			var entryLayout = new StackLayout
 			{
-				Children = { firstNameEntry, entry1Divider, lastNameEntry, entry2Divider,
-					emailEntry, entry3Divider, phoneEntry, entry4Divider, unitNumEntry,
-					entry5Divider, rentEntry, propertyEntry, leaseEntry, dueDateEntry },
+				Children = { FirstNameEntry, entry1Divider, LastNameEntry, entry2Divider, EmailAddressEntry, entry3Divider, 
+					PhoneNumberEntry, entry4Divider, PasswordEntry, entry5Divider, PasswordConfirmEntry, entry6Divider,
+					UnitEntry, entry7Divider, RentEntry, PropertyPicker, LeaseMonthsPicker, DueDatePicker },
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Spacing = 0,
 				Padding = new Thickness(20, 20, 20, 20)
@@ -260,7 +302,7 @@ namespace PropertyManagement.Pages
 				Constraint.Constant(25),
 				Constraint.Constant(30),
 				Constraint.RelativeToParent(parent => { return parent.Width - 50; }),
-				Constraint.Constant(460)
+				Constraint.Constant(660)
 			);
 
 			credentialsLayout.Children.Add(
@@ -283,12 +325,26 @@ namespace PropertyManagement.Pages
 				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
 				Text = "Register"
 			};
-
 			registerButton.Clicked += Controller.OnRegisterButtonTapped;
 
 			Content = new StackLayout
 			{
-				Children = { titleLayout, credentialsLayout, registerButton },
+				Children = 
+				{ 
+					titleLayout, 
+					new ScrollView 
+					{
+						Content = new StackLayout
+						{
+							Children = { credentialsLayout },
+							HorizontalOptions = LayoutOptions.FillAndExpand,
+							VerticalOptions = LayoutOptions.FillAndExpand
+						},
+						HorizontalOptions = LayoutOptions.FillAndExpand,
+						VerticalOptions = LayoutOptions.FillAndExpand
+					},
+					registerButton 
+				},
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				Spacing = 0

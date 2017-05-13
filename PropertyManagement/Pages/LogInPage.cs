@@ -7,6 +7,9 @@ namespace PropertyManagement.Pages
 {
 	public class LogInPage : BasePage<LogInController>
 	{
+		public ExtendedEntry EmailOrPhoneEntry { get; set; }
+		public ExtendedEntry PasswordEntry { get; set; }
+
 		public LogInPage(LogInController controller) : base(controller)
 		{
 			BackgroundImage = "apartment_1.jpg";
@@ -52,7 +55,7 @@ namespace PropertyManagement.Pages
 				Padding = 20
 			};
 
-			var emailEntry = new ExtendedEntry
+			EmailOrPhoneEntry = new ExtendedEntry
 			{
 				HeightRequest = 50,
 				BackgroundColor = Color.Transparent,
@@ -60,7 +63,7 @@ namespace PropertyManagement.Pages
 				FontSize = 15,
 				TextColor = Color.FromHex("7f8c8d"),
 				PlaceholderColor = Color.FromHex("bdc3c7"),
-				Placeholder = "Email"
+				Placeholder = "Email or phone"
 			};
 
 			var entryDivider = new BoxView
@@ -70,7 +73,7 @@ namespace PropertyManagement.Pages
 				HeightRequest = 1
 			};
 
-			var passwordEntry = new ExtendedEntry
+			PasswordEntry = new ExtendedEntry
 			{
 				HeightRequest = 50,
 				BackgroundColor = Color.Transparent,
@@ -84,7 +87,7 @@ namespace PropertyManagement.Pages
 
 			var entryLayout = new StackLayout
 			{
-				Children = { emailEntry, entryDivider, passwordEntry },
+				Children = { EmailOrPhoneEntry, entryDivider, PasswordEntry },
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Spacing = 0,
 				Padding = new Thickness(20, 20, 20, 0)

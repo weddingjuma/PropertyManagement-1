@@ -84,6 +84,7 @@ namespace PropertyManagement.Pages
 				Placeholder = "Password",
 				IsPassword = true
 			};
+			PasswordEntry.Completed += Controller.OnLogInButtonTapped;
 
 			var entryLayout = new StackLayout
 			{

@@ -20,7 +20,7 @@ namespace PropertyManagement.Components
 		private static async Task SendRequest(string additionalDataKey, object additionalDataValue)
 		{
 			var request = new Dictionary<string, object> { 
-				{ "app_id", "5759cafb-f45e-4833-a7a3-71826a03430b" },
+				{ "app_id", "6e68aad9-e62b-413f-be8f-9fca4ae278ef" },
 				{ additionalDataKey, additionalDataValue }
 			};
 
@@ -46,13 +46,13 @@ namespace PropertyManagement.Components
 
 		private static async Task Post(string url, Dictionary<string, object> request, Action<Dictionary<string, object>> successCallback)
 		{
-			var response = await HttpGateway.Post<Dictionary<string, object>, Dictionary<string, object>>(url, "OTY5OWQwMGItMDBiZC00NzA2LWFkZjgtMDViYzg0NDc3ZDU3", request);
+			var response = await HttpGateway.Post<Dictionary<string, object>, Dictionary<string, object>>(url, "MWJkNTdmYzAtZWU4My00NjI0LTk1YzMtMTg5OWE0MTEwYTlh", request);
 			if (response.ContainsKey("success") && (bool)response["success"] == true) successCallback.Invoke(response);
 		}
 
 		private static async Task Put(string url, Dictionary<string, object> request, Action<Dictionary<string, object>> successCallback)
 		{
-			var response = await HttpGateway.Put<Dictionary<string, object>, Dictionary<string, object>>(url, "OTY5OWQwMGItMDBiZC00NzA2LWFkZjgtMDViYzg0NDc3ZDU3", request);
+			var response = await HttpGateway.Put<Dictionary<string, object>, Dictionary<string, object>>(url, "MWJkNTdmYzAtZWU4My00NjI0LTk1YzMtMTg5OWE0MTEwYTlh", request);
 			if (response.ContainsKey("success") && (bool)response["success"] == true) successCallback.Invoke(response);
 		}
 	}

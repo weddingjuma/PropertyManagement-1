@@ -15,10 +15,19 @@ namespace PropertyManagement.Components
 		//public static ILinker Linker { get; } = DependencyService.Get<ILinker>();
 		//public static ISharer Sharer { get; } = DependencyService.Get<ISharer>();
 
-		public static CommunityController CommunityController { get; } = new CommunityController();
-		public static NotificationsController NotificationsController { get; } = new NotificationsController();
-		public static MyHomeController MyHomeController { get; } = new MyHomeController();
-		public static SettingsController SettingsController { get; } = new SettingsController();
-		public static MainController MainController { get; } = new MainController();
+		public static CommunityController CommunityController { get; private set; }
+		public static NotificationsController NotificationsController { get; private set; }
+		public static MyHomeController MyHomeController { get; private set; }
+		public static SettingsController SettingsController { get; private set; }
+		public static MainController MainController { get; private set; }
+
+		public static void InitializeControllers()
+		{
+			CommunityController = new CommunityController();
+			NotificationsController = new NotificationsController();
+			MyHomeController = new MyHomeController();
+			SettingsController = new SettingsController();
+			MainController = new MainController();
+		}
 	}
 }

@@ -14,12 +14,12 @@ namespace PropertyManagement.Controllers
 	{
 		public Dictionary<string, int> Properties { get; set; } = new Dictionary<string, int>
 		{
-			{ "The Palms Apartments", 1 }, { "LullWater Apartments", 2 }, { "Suger Mill Luxury Apartments", 3 },
+			{ "The Palms Apartments", 1 }, { "LullWater Apartments", 2 }, { "Suger Mill Luxury Apartments", 3 }
 		};
 
 		public Dictionary<string, int> LeaseMonths { get; set; } = new Dictionary<string, int>
 		{
-			{ "6 Months", 1 }, { "9 Months", 2 }, { "12 Months", 3 },
+			{ "6 Months", 6 }, { "9 Months", 9 }, { "12 Months", 12 }
 		};
 
 		private bool IsValid { get; set; }
@@ -56,16 +56,16 @@ namespace PropertyManagement.Controllers
 						Unit = Page.UnitEntry.Text,
 						LeaseMonths = LeaseMonths[Page.LeaseMonthsPicker.Items[Page.LeaseMonthsPicker.SelectedIndex]],
 					});
-					UserDialogs.Instance.HideLoading();
-
 					if (response.Success)
 					{
+						ApplicationContext.InitializeControllers();
 						Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = ApplicationContext.MainController.Page);
 					}
 					else
 					{
 						Device.BeginInvokeOnMainThread(() => Page.DisplayAlert(string.Empty, response.ErrorMessage, "OK"));
 					}
+					UserDialogs.Instance.HideLoading();
 				});
 			}
 			else

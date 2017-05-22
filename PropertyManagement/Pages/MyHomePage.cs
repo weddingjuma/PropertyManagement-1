@@ -19,11 +19,11 @@ namespace PropertyManagement.Pages
 
 			var titleView = new TitleView(Title);
 
-			var nameDetailLayout = GetDetailItemLayout("Name", "Susan Michell");
-			var unitDetailLayout = GetDetailItemLayout("Unit", "1427");
-			var rentDetailLayout = GetDetailItemLayout("Rent", "$650");
+			var nameDetailLayout = GetDetailItemLayout("Name", $"{ApplicationContext.User.FirstName} {ApplicationContext.User.LastName}");
+			var unitDetailLayout = GetDetailItemLayout("Unit", ApplicationContext.User.Unit);
+			var rentDetailLayout = GetDetailItemLayout("Rent", $"$600");
 			var dueDateDetailLayout = GetDetailItemLayout("Due Date", DateTime.Now.AddDays(8).ToString("M"));
-			var leaseDetailLayout = GetDetailItemLayout("Lease", "12 months");
+			var leaseDetailLayout = GetDetailItemLayout("Lease", $"{ApplicationContext.User.LeaseMonths} month(s)");
 			var statusDetailLayout = GetDetailItemLayout("Status", "Current");
 			var detailRowLayout1 = GetDetailRowLayout(nameDetailLayout, unitDetailLayout);
 			var detailRowLayout2 = GetDetailRowLayout(rentDetailLayout, dueDateDetailLayout);

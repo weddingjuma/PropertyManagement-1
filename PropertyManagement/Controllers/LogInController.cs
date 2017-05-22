@@ -25,15 +25,16 @@ namespace PropertyManagement.Controllers
 			{
 				UserDialogs.Instance.ShowLoading("Logging In..", MaskType.Gradient);
 				var response = await UserActions.LogIn(Page.EmailOrPhoneEntry.Text, Page.PasswordEntry.Text);
-				UserDialogs.Instance.HideLoading();
 				if (response.Success)
 				{
+					ApplicationContext.InitializeControllers();
 					Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = ApplicationContext.MainController.Page );
 				}
 				else
 				{
 					Device.BeginInvokeOnMainThread(() => Page.DisplayAlert(string.Empty, response.ErrorMessage, "OK") );
 				}
+				UserDialogs.Instance.HideLoading();
 			});
 		}
 	}

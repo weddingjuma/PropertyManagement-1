@@ -338,7 +338,7 @@ namespace PropertyManagement.Pages
 						{
 							Children = { credentialsLayout },
 							HorizontalOptions = LayoutOptions.FillAndExpand,
-							VerticalOptions = LayoutOptions.FillAndExpand
+							HeightRequest = 1000
 						},
 						HorizontalOptions = LayoutOptions.FillAndExpand,
 						VerticalOptions = LayoutOptions.FillAndExpand

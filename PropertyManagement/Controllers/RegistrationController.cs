@@ -108,6 +108,26 @@ namespace PropertyManagement.Controllers
 				ErrorMessage += "You must enter a last name between 2 and 20 characters.\n";
 			}
 
+			if (string.IsNullOrWhiteSpace(Page.UnitEntry.Text))
+			{
+				ErrorMessage += "You must enter a unit number.\n";
+			}
+
+			if (string.IsNullOrWhiteSpace(Page.RentEntry.Text))
+			{
+				ErrorMessage += "You must enter a rent amount.\n";
+			}
+
+			if (Page.PropertyPicker.SelectedItem == null)
+			{
+				ErrorMessage += "You must select a property.\n";
+			}
+
+			if (Page.LeaseMonthsPicker.SelectedItem == null)
+			{
+				ErrorMessage += "You must select a lease term.\n";
+			}
+
 			IsValid = string.IsNullOrWhiteSpace(ErrorMessage);
 		}
 	}

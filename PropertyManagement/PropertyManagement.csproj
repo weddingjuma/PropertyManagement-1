@@ -73,6 +73,8 @@
     <Compile Include="Models\LogInResponseModel.cs" />
     <Compile Include="Models\RegisterRequestModel.cs" />
     <Compile Include="Components\OneSignal.cs" />
+    <Compile Include="Renderers\ExtendedPicker.cs" />
+    <Compile Include="Renderers\ExtendedDatePicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

@@ -158,6 +158,8 @@
     <Compile Include="Renderers\ExtendedEntryRenderer.cs" />
     <Compile Include="Renderers\ExtendedTabbedPageRenderer.cs" />
     <Compile Include="Renderers\ExtendedEditorRenderer.cs" />
+    <Compile Include="Renderers\ExtendedPickerRenderer.cs" />
+    <Compile Include="Renderers\ExtendedDatePickerRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\apartment_1.jpg" />

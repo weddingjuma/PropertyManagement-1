@@ -177,13 +177,14 @@ namespace PropertyManagement.Pages
 				Placeholder = "Rent Amount"
 			};
 
-			PropertyPicker = new Picker
+			PropertyPicker = new ExtendedPicker
 			{
-				//HeightRequest = 50,
+				HeightRequest = 50,
+				Margin = new Thickness(0, 5),
+				FontSize = 15,
 				BackgroundColor = Color.Transparent,
 				TextColor = Color.FromHex("7f8c8d"),
-				Title = "Select Property Name",
-				VerticalOptions = LayoutOptions.CenterAndExpand
+				Title = "Select Property"
 			};
 
 			foreach (string property in controller.Properties.Keys)
@@ -191,15 +192,14 @@ namespace PropertyManagement.Pages
 				PropertyPicker.Items.Add(property);
 			}
 
-			//PropertyPicker.
-
-			LeaseMonthsPicker = new Picker
+			LeaseMonthsPicker = new ExtendedPicker
 			{
-				//HeightRequest = 50,
+				HeightRequest = 50,
+				Margin = new Thickness(0, 5),
+				FontSize = 15,
 				BackgroundColor = Color.Transparent,
 				TextColor = Color.FromHex("7f8c8d"),
-				Title = " Select Lease Term",
-				VerticalOptions = LayoutOptions.CenterAndExpand
+				Title = "Select Lease Term"
 			};
 
 			foreach (string leaseMonth in controller.LeaseMonths.Keys)
@@ -207,17 +207,14 @@ namespace PropertyManagement.Pages
 				LeaseMonthsPicker.Items.Add(leaseMonth);
 			}
 
-			//if (controller.LeaseMonths.ContainsValue(ApplicationContext.User.LeaseMonths))
-			//{
-			//	LeaseMonthsPicker.SelectedIndex[controller.LeaseMonths.FirstOrDefault(x => x.Value == ApplicationContext.User.LeaseMonths).Key]
-			//}
-
-			DueDatePicker = new DatePicker
+			DueDatePicker = new ExtendedDatePicker
 			{
+				HeightRequest = 50,
+				Margin = new Thickness(0, 5),
+				FontSize = 15,
 				Format = "D",
 				BackgroundColor = Color.Transparent,
-				TextColor = Color.FromHex("7f8c8d"),
-				VerticalOptions = LayoutOptions.CenterAndExpand
+				TextColor = Color.FromHex("7f8c8d")
 			};
 
 			var entryLayout = new StackLayout

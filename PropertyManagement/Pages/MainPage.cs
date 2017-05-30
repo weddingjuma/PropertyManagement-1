@@ -1,5 +1,4 @@
-﻿using System;
-using PropertyManagement.Components;
+﻿using PropertyManagement.Components;
 using PropertyManagement.Controllers;
 using Xamarin.Forms;
 
@@ -9,10 +8,10 @@ namespace PropertyManagement.Pages
 	{
 		public MainPage(MainController controller)
 		{
-			Children.Add(ApplicationContext.CommunityController.Page);
-			Children.Add(ApplicationContext.NotificationsController.Page);
-			Children.Add(ApplicationContext.MyHomeController.Page);
-			Children.Add(ApplicationContext.SettingsController.Page);
+			AddChild(ApplicationContext.CommunityController.Page);
+			AddChild(ApplicationContext.NotificationsController.Page);
+			AddChild(ApplicationContext.MyHomeController.Page);
+			AddChild(ApplicationContext.SettingsController.Page);
 		}
 
 		protected override void OnCurrentPageChanged()
@@ -20,6 +19,11 @@ namespace PropertyManagement.Pages
 			base.OnCurrentPageChanged();
 
 			Title = CurrentPage.Title;
+		}
+
+		private void AddChild(Page page)
+		{
+			Children.Add(new NavigationPage(page));
 		}
 	}
 }

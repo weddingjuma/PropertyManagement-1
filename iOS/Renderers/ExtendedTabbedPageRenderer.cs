@@ -17,7 +17,8 @@ namespace Foamlife.iOS.Renderers
 			var tabbedPage = Element as TabbedPage;
 			for (int i = 0; i < TabBar.Items.Length; i++)
 			{
-				UpdateTabBarItem(TabBar.Items[i], (tabbedPage.Children[i] as ExtendedPage));
+				var tabPage = (tabbedPage.Children[i] as NavigationPage).CurrentPage;
+				UpdateTabBarItem(TabBar.Items[i], (tabPage as ExtendedPage));
 			}
 		}
 

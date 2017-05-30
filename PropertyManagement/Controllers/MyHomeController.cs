@@ -9,5 +9,10 @@ namespace PropertyManagement.Controllers
 		{
 			Page = new MyHomePage(this);
 		}
+
+		public void OnPaymentButtonTapped(object sender, EventArgs e)
+		{
+			Page.Navigation.PushAsync(new RentPaymentController().Page);
+		}
 	}
 }

@@ -175,6 +175,10 @@
     <BundleResource Include="Resources\myhome_white_selected%402x.png" />
     <BundleResource Include="Resources\settings_white_selected%402x.png" />
     <BundleResource Include="Resources\test_user.jpeg" />
+    <BundleResource Include="Resources\credit_card_black.png" />
+    <BundleResource Include="Resources\paypal_black.png" />
+    <BundleResource Include="Resources\bank_black.png" />
+    <BundleResource Include="Resources\credit_card_white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

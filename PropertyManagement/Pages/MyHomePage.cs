@@ -108,7 +108,7 @@ namespace PropertyManagement.Pages
 				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
 				Text = "Make A Payment"
 			};
-			//paymentButton.Clicked += Controller.OnLogInButtonTapped;
+			paymentButton.Clicked += Controller.OnPaymentButtonTapped;
 
 			var historyButton = new Button
 			{

@@ -1,4 +1,5 @@
 ﻿using PropertyManagement.Renderers;
+using Xamarin.Forms;
 
 namespace PropertyManagement.Pages
 {
@@ -9,6 +10,8 @@ namespace PropertyManagement.Pages
 		public BasePage(T controller)
 		{
 			Controller = controller;
+
+			NavigationPage.SetHasNavigationBar(this, false);
 		}
 	}
 }

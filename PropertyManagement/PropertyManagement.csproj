@@ -75,6 +75,10 @@
     <Compile Include="Components\OneSignal.cs" />
     <Compile Include="Renderers\ExtendedPicker.cs" />
     <Compile Include="Renderers\ExtendedDatePicker.cs" />
+    <Compile Include="Controllers\RentPaymentController.cs" />
+    <Compile Include="Pages\RentPaymentPage.cs" />
+    <Compile Include="Models\PaymentMethodModel.cs" />
+    <Compile Include="Cells\PaymentMethodCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

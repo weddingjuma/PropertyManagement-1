@@ -1,4 +1,6 @@
-﻿namespace PropertyManagement.Controllers
+﻿using Xamarin.Forms;
+
+namespace PropertyManagement.Controllers
 {
 	public class BaseController<T>
 	{
@@ -7,6 +9,11 @@
 		public BaseController()
 		{
 			
+		}
+
+		public void BackButtonTapped()
+		{
+			(Page as Page).Navigation.PopAsync();
 		}
 	}
 }

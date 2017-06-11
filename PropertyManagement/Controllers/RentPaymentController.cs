@@ -39,10 +39,5 @@ namespace PropertyManagement.Controllers
 		{
 			Page = new RentPaymentPage(this);
 		}
-
-		public void BackButtonTapped()
-		{
-			Page.Navigation.PopAsync();
-		}
 	}
 }

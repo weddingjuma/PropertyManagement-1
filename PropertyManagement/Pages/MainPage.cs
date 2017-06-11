@@ -11,7 +11,7 @@ namespace PropertyManagement.Pages
 			AddChild(ApplicationContext.CommunityController.Page);
 			AddChild(ApplicationContext.NotificationsController.Page);
 			AddChild(ApplicationContext.MyHomeController.Page);
-			AddChild(ApplicationContext.SettingsController.Page);
+			AddChild(ApplicationContext.ServiceController.Page);
 		}
 
 		protected override void OnCurrentPageChanged()

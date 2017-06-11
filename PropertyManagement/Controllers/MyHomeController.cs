@@ -14,5 +14,10 @@ namespace PropertyManagement.Controllers
 		{
 			Page.Navigation.PushAsync(new RentPaymentController().Page);
 		}
+
+		public void OnSettingsButtonTapped(object sender, EventArgs e)
+		{
+			Page.Navigation.PushAsync(new SettingsController().Page);
+		}
 	}
 }

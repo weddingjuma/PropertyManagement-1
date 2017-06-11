@@ -18,7 +18,7 @@ namespace PropertyManagement.Components
 		public static CommunityController CommunityController { get; private set; }
 		public static NotificationsController NotificationsController { get; private set; }
 		public static MyHomeController MyHomeController { get; private set; }
-		public static SettingsController SettingsController { get; private set; }
+		public static ServiceController ServiceController { get; private set; }
 		public static MainController MainController { get; private set; }
 
 		public static void InitializeControllers()
@@ -26,7 +26,7 @@ namespace PropertyManagement.Components
 			CommunityController = new CommunityController();
 			NotificationsController = new NotificationsController();
 			MyHomeController = new MyHomeController();
-			SettingsController = new SettingsController();
+			ServiceController = new ServiceController();
 			MainController = new MainController();
 		}
 	}

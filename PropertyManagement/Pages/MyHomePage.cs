@@ -136,7 +136,7 @@ namespace PropertyManagement.Pages
 			};
 			//contactButton.Clicked += Controller.OnLogInButtonTapped;
 
-			var serviceButton = new Button
+			var settingsButton = new Button
 			{
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				HeightRequest = 55,
@@ -145,13 +145,13 @@ namespace PropertyManagement.Pages
 				FontSize = 17,
 				TextColor = Color.White,
 				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
-				Text = "Request Service"
+				Text = "Change Settings"
 			};
-			//serviceButton.Clicked += Controller.OnLogInButtonTapped;
+			settingsButton.Clicked += Controller.OnSettingsButtonTapped;
 
 			var buttonLayout = new StackLayout
 			{
-				Children = { paymentButton, historyButton, contactButton, serviceButton },
+				Children = { paymentButton, historyButton, contactButton, settingsButton },
 				Spacing = 10,
 				Padding = new Thickness(0, 0, 0, 15)
 			};

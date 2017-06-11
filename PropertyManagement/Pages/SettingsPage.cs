@@ -30,7 +30,7 @@ namespace PropertyManagement.Pages
 			BackgroundGradientStartColor = Color.FromHex("42275a");
 			BackgroundGradientEndColor = Color.FromHex("42275a");
 
-			var titleView = new TitleView(Title);
+			var titleView = new TitleView(Title, Controller.BackButtonTapped);
 
 			FirstNameEntry = new ExtendedEntry
 			{

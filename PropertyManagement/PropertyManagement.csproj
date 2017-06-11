@@ -79,6 +79,12 @@
     <Compile Include="Pages\RentPaymentPage.cs" />
     <Compile Include="Models\PaymentMethodModel.cs" />
     <Compile Include="Cells\PaymentMethodCell.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Models\ServiceModel.cs" />
+    <Compile Include="Pages\ServicePage.cs" />
+    <Compile Include="Models\ServiceRequestModel.cs" />
+    <Compile Include="Models\ServiceResponseModel.cs" />
+    <Compile Include="Cells\ServiceCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

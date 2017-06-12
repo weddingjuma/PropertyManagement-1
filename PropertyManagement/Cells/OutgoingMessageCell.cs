@@ -9,15 +9,22 @@ namespace PropertyManagement.Cells
 		{
 		}
 
-		protected override StackLayout GetMessageLayout(ExtendedFrame profileImageFrame, ExtendedFrame messageframe)
+		protected override Grid GetMessageGrid(ExtendedFrame frame, Label textLabel, Label dateLabel)
 		{
-			return new StackLayout
-			{
-				Children = { messageframe, profileImageFrame },
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				Spacing = 10,
-				Padding = 0
-			};
+			frame.ActualBackgroundColor = Color.Transparent;
+			frame.BorderWidth = 1;
+			frame.BorderColor = Color.White;
+			frame.HorizontalOptions = LayoutOptions.End;
+			textLabel.TextColor = Color.White;
+			dateLabel.HorizontalOptions = LayoutOptions.End;
+			var grid = new Grid();
+			grid.RowDefinitions.Add (new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+			grid.RowDefinitions.Add (new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+			grid.ColumnDefinitions.Add (new ColumnDefinition{ Width = new GridLength(1, GridUnitType.Star) });
+			grid.ColumnDefinitions.Add (new ColumnDefinition{ Width = new GridLength(3, GridUnitType.Star) });
+			grid.Children.Add(frame, 1, 0);
+			grid.Children.Add(dateLabel, 1, 1);
+			return grid;
 		}
 	}
 }

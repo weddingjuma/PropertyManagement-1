@@ -89,6 +89,9 @@
     <Compile Include="Cells\IncomingMessageCell.cs" />
     <Compile Include="Cells\OutgoingMessageCell.cs" />
     <Compile Include="Models\MessageModel.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Pages\MessagesPage.cs" />
+    <Compile Include="Components\MessageTemplateSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

@@ -89,6 +89,16 @@ namespace PropertyManagement.Controllers
 			}
 		}
 
+		public void OnServiceTapped(object sender, SelectedItemChangedEventArgs e)
+		{
+			if (e.SelectedItem == null)
+			{
+				return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+			}
+			Page.Navigation.PushAsync(new MessagesController((ServiceModel)e.SelectedItem).Page);
+			((ListView)sender).SelectedItem = null;
+		}
+
 		private void SetValidationState()
 		{
 			ErrorMessage = string.Empty;

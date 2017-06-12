@@ -200,6 +200,7 @@ namespace PropertyManagement.Pages
 				BackgroundColor = Color.Transparent,
 				Header = headerLayout
 			};
+			listView.ItemSelected += Controller.OnServiceTapped;
 
 			var listViewLayout = new StackLayout
 			{

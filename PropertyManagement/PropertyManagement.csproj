@@ -85,6 +85,10 @@
     <Compile Include="Models\ServiceRequestModel.cs" />
     <Compile Include="Models\ServiceResponseModel.cs" />
     <Compile Include="Cells\ServiceCell.cs" />
+    <Compile Include="Cells\BaseMessageCell.cs" />
+    <Compile Include="Cells\IncomingMessageCell.cs" />
+    <Compile Include="Cells\OutgoingMessageCell.cs" />
+    <Compile Include="Models\MessageModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

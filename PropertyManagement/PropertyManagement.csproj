@@ -92,6 +92,10 @@
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Pages\MessagesPage.cs" />
     <Compile Include="Components\MessageTemplateSelector.cs" />
+    <Compile Include="Controllers\PaymentHistoryController.cs" />
+    <Compile Include="Pages\PaymentHistoryPage.cs" />
+    <Compile Include="Pages\ContactOfficePage.cs" />
+    <Compile Include="Controllers\ContactOfficeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

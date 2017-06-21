@@ -15,6 +15,16 @@ namespace PropertyManagement.Controllers
 			Page.Navigation.PushAsync(new RentPaymentController().Page);
 		}
 
+		public void OnHistoryButtonTapped(object sender, EventArgs e)
+		{
+			Page.Navigation.PushAsync(new PaymentHistoryController().Page);
+		}
+
+		public void OnContactButtonTapped(object sender, EventArgs e)
+		{
+			Page.Navigation.PushAsync(new ContactOfficeController().Page);
+		}
+
 		public void OnSettingsButtonTapped(object sender, EventArgs e)
 		{
 			Page.Navigation.PushAsync(new SettingsController().Page);

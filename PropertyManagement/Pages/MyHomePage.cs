@@ -121,7 +121,7 @@ namespace PropertyManagement.Pages
 				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
 				Text = "View Payment History"
 			};
-			//historyButton.Clicked += Controller.OnLogInButtonTapped;
+			historyButton.Clicked += Controller.OnHistoryButtonTapped;
 
 			var contactButton = new Button
 			{
@@ -134,7 +134,7 @@ namespace PropertyManagement.Pages
 				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
 				Text = "Contact Office"
 			};
-			//contactButton.Clicked += Controller.OnLogInButtonTapped;
+			contactButton.Clicked += Controller.OnContactButtonTapped;
 
 			var settingsButton = new Button
 			{

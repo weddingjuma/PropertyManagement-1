@@ -82,7 +82,7 @@ namespace PropertyManagement.Pages
 				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
 				Text = "Add Payment Method"
 			};
-			//postButton.Clicked += Controller.OnLogInButtonTapped;
+			postButton.Clicked += Controller.OnMethodButtonTapped;
 
 			var buttonLayout = new StackLayout
 			{

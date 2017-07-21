@@ -96,6 +96,8 @@
     <Compile Include="Pages\PaymentHistoryPage.cs" />
     <Compile Include="Pages\ContactOfficePage.cs" />
     <Compile Include="Controllers\ContactOfficeController.cs" />
+    <Compile Include="Controllers\PaymentMethodController.cs" />
+    <Compile Include="Pages\PaymentMethodPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

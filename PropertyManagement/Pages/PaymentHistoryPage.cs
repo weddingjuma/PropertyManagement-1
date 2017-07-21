@@ -36,7 +36,7 @@ namespace PropertyManagement.Pages
 				ShadowBlurRadius = 1.4,
 				ShadowOffsetX = 0.3,
 				ShadowOffsetY = 0.8,
-				Text = "Date        ·        Method        ·        Amount"
+				Text = "Date     ·     Method     ·     Amount"
 			};
 
 			var breakdownLayout = new StackLayout
@@ -55,7 +55,7 @@ namespace PropertyManagement.Pages
 				FontFamily = ApplicationSettings.RegularFontFamily,
 				FontSize = 15,
 				TextColor = Color.FromHex("7f8c8d"),
-				Text = "04/01/2017          ************4326                $600"
+				Text = "04/01/2017    ************4326        $600"
 			};
 
 			var entry1Divider = new BoxView
@@ -72,7 +72,7 @@ namespace PropertyManagement.Pages
 				FontFamily = ApplicationSettings.RegularFontFamily,
 				FontSize = 15,
 				TextColor = Color.FromHex("7f8c8d"),
-				Text = "05/01/2017         susan@gmail.com              $600"
+				Text = "05/01/2017   susan@gmail.com      $600"
 			};
 
 			var entry2Divider = new BoxView
@@ -89,7 +89,7 @@ namespace PropertyManagement.Pages
 				FontFamily = ApplicationSettings.RegularFontFamily,
 				FontSize = 15,
 				TextColor = Color.FromHex("7f8c8d"),
-				Text = "06/01/2017           ************7898               $600"
+				Text = "06/01/2017    ************7898        $600"
 			};
 
 			var entry3Divider = new BoxView
@@ -106,50 +106,85 @@ namespace PropertyManagement.Pages
 				FontFamily = ApplicationSettings.RegularFontFamily,
 				FontSize = 15,
 				TextColor = Color.FromHex("7f8c8d"),
-				Text = "07/01/2017           ************7898               $600"
+				Text = "07/01/2017    ************7898        $600"
 			};
 			var entryLayout = new StackLayout
 			{
-				Children = { HistoryEntry1, entry1Divider, HistoryEntry2, entry2Divider, HistoryEntry3, entry3Divider, HistoryEntry4 },
+				Children = { HistoryEntry1, entry1Divider, HistoryEntry2, entry2Divider, HistoryEntry3, entry3Divider,
+					HistoryEntry4 },
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Spacing = 10,
-				Padding = new Thickness(10, 10, 10, 10)
+				Padding = new Thickness(20, 20, 20, 20)
 			};
 
-			var credentialsBackgroundFrame = new ExtendedFrame
-			{
-				Content = entryLayout,
-				OutlineColor = Color.White,
-				ActualBackgroundColor = Color.White,
-				HasShadow = false,
-				CornerRadius = 2,
-				BorderWidth = 0,
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				Padding = 0
-			};
+var credentialsBackgroundFrame = new ExtendedFrame
+{
+	Content = entryLayout,
+	OutlineColor = Color.White,
+	ActualBackgroundColor = Color.White,
+	HasShadow = false,
+	CornerRadius = 2,
+	BorderWidth = 0,
+	VerticalOptions = LayoutOptions.FillAndExpand,
+	HorizontalOptions = LayoutOptions.FillAndExpand,
+	Padding = 0
+};
 
-			var credentialsLayout = new RelativeLayout
-			{
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				HeightRequest = 168
-			};
+var credentialsIcon = new Image
+{
+	Source = ImageSource.FromFile("credit_card_white"),
+	Aspect = Aspect.AspectFit,
+	HeightRequest = 50,
+	WidthRequest = 50
+};
 
-			credentialsLayout.Children.Add(
+var credentialsIconFrame = new ExtendedFrame
+{
+	Content = credentialsIcon,
+	OutlineColor = Color.Orange,
+	ActualBackgroundColor = Color.Orange,
+	HasShadow = false,
+	CornerRadius = 30,
+	BorderWidth = 0,
+	HeightRequest = 70,
+	WidthRequest = 70,
+	ShadowColor = Color.Black,
+	ShadowOpacity = 0.3,
+	ShadowBlurRadius = 1,
+	ShadowOffsetX = 0,
+	ShadowOffsetY = 0,
+};
+
+var credentialsLayout = new RelativeLayout
+{
+	HorizontalOptions = LayoutOptions.FillAndExpand,
+	HeightRequest = 168
+};
+
+credentialsLayout.Children.Add(
 				credentialsBackgroundFrame,
 				Constraint.Constant(25),
 				Constraint.Constant(30),
-				Constraint.RelativeToParent(parent => { return parent.Width; }),
-				Constraint.Constant(240)
+				Constraint.RelativeToParent(parent => { return parent.Width - 50; }),
+				Constraint.Constant(350)
 			);
 
-			Content = new StackLayout
-			{
-				Children = { titleView, itemizedLabel, credentialsBackgroundFrame },
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				Spacing = 10
-			};
+			credentialsLayout.Children.Add(
+				credentialsIconFrame,
+				Constraint.RelativeToParent(parent => { return parent.Width / 2 - 30; }),
+				Constraint.Constant(0),
+				Constraint.Constant(60),
+				Constraint.Constant(60)
+			);
+
+
+			//Content = new StackLayout
+			//{
+			//	Children = { titleView, itemizedLabel, credentialsBackgroundFrame },
+			//	HorizontalOptions = LayoutOptions.FillAndExpand,
+			//	VerticalOptions = LayoutOptions.FillAndExpand,
+			//	Spacing = 10
+			//};
 
 			Content = new StackLayout
 			{
@@ -160,9 +195,10 @@ namespace PropertyManagement.Pages
 					{
 						Content = new StackLayout
 						{
-							Children = { itemizedLabel, credentialsBackgroundFrame },
+							Children = { itemizedLabel, credentialsLayout },
 							HorizontalOptions = LayoutOptions.FillAndExpand,
-							HeightRequest = 1000
+							HeightRequest = 800,
+							Spacing = 10
 						},
 						HorizontalOptions = LayoutOptions.FillAndExpand,
 						VerticalOptions = LayoutOptions.FillAndExpand
@@ -171,7 +207,8 @@ namespace PropertyManagement.Pages
 				},
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand,
-				Spacing = 0
+				Spacing = 10,
+				Padding = 0
 			};
 		}
 	}

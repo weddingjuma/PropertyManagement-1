@@ -133,12 +133,12 @@ namespace PropertyManagement.Pages
 					entry4Divider, EmailLabel },
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Spacing = 15,
-				Padding = new Thickness(10, 10, 10, 10)
+				Padding = new Thickness(20, 20, 20, 20)
 			};
 
 			NameEntry = new ExtendedEntry
 			{
-				HeightRequest = 20,
+				HeightRequest = 40,
 				BackgroundColor = Color.Transparent,
 				FontFamily = ApplicationSettings.RegularFontFamily,
 				FontSize = 15,
@@ -156,7 +156,7 @@ namespace PropertyManagement.Pages
 
 			EmailEntry = new ExtendedEntry
 			{
-				HeightRequest = 20,
+				HeightRequest = 30,
 				BackgroundColor = Color.Transparent,
 				FontFamily = ApplicationSettings.RegularFontFamily,
 				FontSize = 15,
@@ -188,78 +188,115 @@ namespace PropertyManagement.Pages
 				Children = { NameEntry, Divider1, EmailEntry, Divider2, MessageEntry },
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Spacing = 10,
-				Padding = new Thickness(10, 10, 10, 0)
+				Padding = new Thickness(20, 20, 20, 20)
 			};
 
-			var credentialsBackgroundFrame = new ExtendedFrame
-			{
-				Content = entryLayout2,
-				OutlineColor = Color.White,
-				ActualBackgroundColor = Color.White,
-				HasShadow = false,
-				CornerRadius = 2,
-				BorderWidth = 0,
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				Padding = 0
-			};
+var credentialsBackgroundFrame = new ExtendedFrame
+{
+	Content = entryLayout2,
+	OutlineColor = Color.White,
+	ActualBackgroundColor = Color.White,
+	HasShadow = false,
+	CornerRadius = 2,
+	BorderWidth = 0,
+	VerticalOptions = LayoutOptions.FillAndExpand,
+	HorizontalOptions = LayoutOptions.FillAndExpand,
+	Padding = 0
+};
 
-			var credentialsLayout = new RelativeLayout
-			{
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				HeightRequest = 150
-			};
+var credentialsIcon = new Image
+{
+	Source = ImageSource.FromFile("myhome_white"),
+	Aspect = Aspect.AspectFit,
+	HeightRequest = 50,
+	WidthRequest = 50
+};
 
-			credentialsLayout.Children.Add(
+var credentialsIconFrame = new ExtendedFrame
+{
+	Content = credentialsIcon,
+	OutlineColor = Color.Orange,
+	ActualBackgroundColor = Color.Orange,
+	HasShadow = false,
+	CornerRadius = 30,
+	BorderWidth = 0,
+	HeightRequest = 70,
+	WidthRequest = 70,
+	ShadowColor = Color.Black,
+	ShadowOpacity = 0.3,
+	ShadowBlurRadius = 1,
+	ShadowOffsetX = 0,
+	ShadowOffsetY = 0,
+};
+
+var credentialsLayout = new RelativeLayout
+{
+	HorizontalOptions = LayoutOptions.FillAndExpand,
+	HeightRequest = 168
+};
+
+credentialsLayout.Children.Add(
 				credentialsBackgroundFrame,
 				Constraint.Constant(25),
 				Constraint.Constant(30),
-				Constraint.RelativeToParent(parent => { return parent.Width; }),
-				Constraint.Constant(125)
+				Constraint.RelativeToParent(parent => { return parent.Width - 50; }),
+				Constraint.Constant(300)
 			);
 
-			Content = new StackLayout
-			{
-				Children = { titleView, entryLayout, credentialsBackgroundFrame },
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				Spacing = 0
-			};
+			credentialsLayout.Children.Add(
+				credentialsIconFrame,
+				Constraint.RelativeToParent(parent => { return parent.Width / 2 - 30; }),
+				Constraint.Constant(0),
+				Constraint.Constant(60),
+				Constraint.Constant(60)
+			);
 
-			var submitButton = new Button
-			{
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				VerticalOptions = LayoutOptions.End,
-				HeightRequest = 55,
-				BorderRadius = 0,
-				FontFamily = ApplicationSettings.BoldFontFamily,
-				FontSize = 17,
-				TextColor = Color.White,
-				BackgroundColor = Color.Black.MultiplyAlpha(0.2),
-				Text = "Submit"
-			};
+
+		var submitButton = new Button
+		{
+			HorizontalOptions = LayoutOptions.FillAndExpand,
+			VerticalOptions = LayoutOptions.End,
+			HeightRequest = 55,
+			BorderRadius = 0,
+			FontFamily = ApplicationSettings.BoldFontFamily,
+			FontSize = 17,
+			TextColor = Color.White,
+			BackgroundColor = Color.Black.MultiplyAlpha(0.2),
+			Text = "Submit"
+		};
 			//registerButton.Clicked += Controller.OnRegisterButtonTapped;
+
+			//Content = new StackLayout
+			//{
+			//	Children = { titleView, entryLayout, credentialsBackgroundFrame },
+			//	HorizontalOptions = LayoutOptions.FillAndExpand,
+			//	VerticalOptions = LayoutOptions.FillAndExpand,
+			//	Spacing = 0
+			//};
+
+
 			Content = new StackLayout
 			{
-				Children =
-				{
+				Children = 
+				{ 
 					titleView,
-					new ScrollView
+					new ScrollView 
 					{
 						Content = new StackLayout
 						{
-							Children = { entryLayout, credentialsBackgroundFrame },
+							Children = { entryLayout, credentialsLayout, submitButton },
 							HorizontalOptions = LayoutOptions.FillAndExpand,
-							HeightRequest = 1000
+							HeightRequest = 800,
+							Spacing = 10
 						},
 						HorizontalOptions = LayoutOptions.FillAndExpand,
 						VerticalOptions = LayoutOptions.FillAndExpand
-					},
-					submitButton
+					}
 				},
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand,
-				Spacing = 0
+				Spacing = 10,
+				Padding = 0
 			};
 		}
 	}

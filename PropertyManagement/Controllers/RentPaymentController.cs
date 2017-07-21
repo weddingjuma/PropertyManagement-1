@@ -39,5 +39,10 @@ namespace PropertyManagement.Controllers
 		{
 			Page = new RentPaymentPage(this);
 		}
+
+		public void OnMethodButtonTapped(object sender, EventArgs e)
+		{
+			Page.Navigation.PushAsync(new PaymentMethodController().Page);
+		}
 	}
 }

@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Acr.UserDialogs;
 using PropertyManagement.Components;
 using PropertyManagement.Controllers;
 using Xamarin.Forms;
@@ -10,24 +9,8 @@ namespace PropertyManagement
 	{
 		public App()
 		{
-			// TODO: add loading screen instead of showing landing every time
-
-			MainPage = new LandingController().Page;
-
-			if (ApplicationContext.IsUserLoggedIn)
-			{
-				Task.Run(async() =>
-				{
-					UserDialogs.Instance.ShowLoading("Logging In..", MaskType.Gradient);
-					var response = await UserActions.LogIn();
-					if (response.Success)
-					{
-						ApplicationContext.InitializeControllers();
-						Device.BeginInvokeOnMainThread(() => MainPage = ApplicationContext.MainController.Page );
-					}
-					UserDialogs.Instance.HideLoading();
-				});
-			}
+            MainPage = new LaunchController().Page;
+            OpenInitialPage();
 		}
 
 		protected override void OnStart()
@@ -44,5 +27,29 @@ namespace PropertyManagement
 		{
 			// Handle when your app resumes
 		}
+
+        private void OpenInitialPage()
+        {
+            if (ApplicationContext.IsUserLoggedIn)
+            {
+                Task.Run(async () =>
+                {
+                    var response = await UserActions.LogIn();
+                    if (response.Success)
+                    {
+                        ApplicationContext.InitializeControllers();
+                        Device.BeginInvokeOnMainThread(() => MainPage = ApplicationContext.MainController.Page);
+                    }
+                    else
+                    {
+                        Device.BeginInvokeOnMainThread(() => MainPage = new LogInController().Page);
+                    }
+                });
+            }
+            else
+            {
+                Device.BeginInvokeOnMainThread(() => MainPage = new LogInController().Page);
+            }
+        }
 	}
 }

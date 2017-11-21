@@ -60,8 +60,8 @@
     <Compile Include="Components\Formatter.cs" />
     <Compile Include="Cells\NotificationCell.cs" />
     <Compile Include="Models\NotificationModel.cs" />
-	<Compile Include="Controllers\RegistrationController.cs" />
-    <Compile Include="Pages\RegistrationPage.cs" />
+	<Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Pages\RegisterPage.cs" />
     <Compile Include="Components\HttpGateway.cs" />
     <Compile Include="Components\UserActions.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -98,6 +98,8 @@
     <Compile Include="Controllers\ContactOfficeController.cs" />
     <Compile Include="Controllers\PaymentMethodController.cs" />
     <Compile Include="Pages\PaymentMethodPage.cs" />
+    <Compile Include="Controllers\LaunchController.cs" />
+    <Compile Include="Pages\LaunchPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

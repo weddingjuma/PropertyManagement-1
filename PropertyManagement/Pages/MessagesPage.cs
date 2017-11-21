@@ -18,7 +18,7 @@ namespace PropertyManagement.Pages
 			BackgroundGradientStartColor = Color.Green;
 			BackgroundGradientEndColor = Color.Blue;
 
-			var titleView = new TitleView(Title, Controller.BackButtonTapped);
+			var titleView = new TitleView(Title, null);
 
 			var listView = new ListView(ListViewCachingStrategy.RecycleElement)
 			{

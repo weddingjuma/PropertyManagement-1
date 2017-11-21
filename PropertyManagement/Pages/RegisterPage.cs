@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace PropertyManagement.Pages
 {
-	public class RegistrationPage : BasePage<RegistrationController>
+	public class RegisterPage : BasePage<RegisterController>
 	{
 		public Entry EmailAddressEntry { get; set; }
 		public Entry PhoneNumberEntry { get; set; }
@@ -21,7 +21,7 @@ namespace PropertyManagement.Pages
 		public Picker LeaseMonthsPicker { get; set; }
 		public DatePicker DueDatePicker { get; set; }
 
-		public RegistrationPage(RegistrationController controller) : base(controller)
+		public RegisterPage(RegisterController controller) : base(controller)
 		{
 			BackgroundImage = "apartment_1.jpg";
 			BackgroundGradientStartColor = Color.Green;
@@ -38,7 +38,7 @@ namespace PropertyManagement.Pages
 			};
 
 			var exitIconTapGestureRecognizer = new TapGestureRecognizer();
-			exitIconTapGestureRecognizer.Tapped += Controller.OnExitIconTapped;
+			//exitIconTapGestureRecognizer.Tapped += Controller.OnExitIconTapped;
 			exitIcon.GestureRecognizers.Add(exitIconTapGestureRecognizer);
 
 			var titleLabel = new ExtendedLabel

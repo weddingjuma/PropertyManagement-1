@@ -16,19 +16,6 @@ namespace PropertyManagement.Pages
 			BackgroundGradientStartColor = Color.Green;
 			BackgroundGradientEndColor = Color.Blue;
 
-			var exitIcon = new Image
-			{
-				Source = ImageSource.FromFile("cancel_white"),
-				Aspect = Aspect.AspectFit,
-				HorizontalOptions = LayoutOptions.Start,
-				VerticalOptions = LayoutOptions.Center,
-				HeightRequest = 15,
-				WidthRequest = 15
-			};
-			var exitIconTapGestureRecognizer = new TapGestureRecognizer();
-			exitIconTapGestureRecognizer.Tapped += Controller.OnExitIconTapped;
-			exitIcon.GestureRecognizers.Add(exitIconTapGestureRecognizer);
-
 			var titleLabel = new ExtendedLabel
 			{
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
@@ -48,7 +35,7 @@ namespace PropertyManagement.Pages
 
 			var titleLayout = new StackLayout
 			{
-				Children = { exitIcon, titleLabel, titlePlaceholder },
+				Children = { titleLabel, titlePlaceholder },
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				HeightRequest = 50,
 				Orientation = StackOrientation.Horizontal,

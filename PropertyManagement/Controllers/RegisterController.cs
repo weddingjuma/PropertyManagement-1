@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace PropertyManagement.Controllers
 {
-	public class RegistrationController : BaseController<RegistrationPage>
+	public class RegisterController : BaseController<RegisterPage>
 	{
 		public Dictionary<string, int> Properties { get; set; } = new Dictionary<string, int>
 		{
@@ -22,18 +22,13 @@ namespace PropertyManagement.Controllers
 			{ "6 Months", 6 }, { "9 Months", 9 }, { "12 Months", 12 }
 		};
 
-		private bool IsValid { get; set; }
-		private string ErrorMessage { get; set; }
+        private bool IsValid { get; set; }
+        private string ErrorMessage { get; set; }
 
-		public RegistrationController() : base()
-		{
-			Page = new RegistrationPage(this);
-		}
-
-		public void OnExitIconTapped(object sender, EventArgs e)
-		{
-			Page.Navigation.PopModalAsync();
-		}
+        public RegisterController() : base()
+        {
+            Page = new RegisterPage(this);
+        }
 
 		public void OnRegisterButtonTapped(object sender, EventArgs e)
 		{
@@ -59,11 +54,11 @@ namespace PropertyManagement.Controllers
 					if (response.Success)
 					{
 						ApplicationContext.InitializeControllers();
-						Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = ApplicationContext.MainController.Page);
+                        Device.BeginInvokeOnMainThread(() => Application.Current.MainPage = new NavigationPage(ApplicationContext.MainController.Page));
 					}
 					else
 					{
-						Device.BeginInvokeOnMainThread(() => Page.DisplayAlert(string.Empty, response.ErrorMessage, "OK"));
+                        //Device.BeginInvokeOnMainThread(() => ApplicationContext.Notification.ShowFailure(response.ErrorMessage, 3));
 					}
 					UserDialogs.Instance.HideLoading();
 				});
@@ -73,6 +68,11 @@ namespace PropertyManagement.Controllers
 				Page.DisplayAlert(string.Empty, ErrorMessage, "OK");
 			}
 		}
+
+        public void OnCancelButtonTapped(object sender, EventArgs e)
+        {
+            Page.Navigation.PopModalAsync();
+        }
 
 		private void SetValidationState()
 		{

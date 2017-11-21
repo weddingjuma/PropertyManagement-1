@@ -17,7 +17,7 @@ namespace PropertyManagement.Controllers
 
 		public void OnRegisterButtonTapped(object sender, EventArgs e)
 		{
-			Page.Navigation.PushModalAsync(new RegistrationController().Page);
+			Page.Navigation.PushModalAsync(new RegisterController().Page);
 		}
 	}
 }

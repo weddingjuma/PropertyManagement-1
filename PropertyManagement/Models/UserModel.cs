@@ -24,6 +24,8 @@ namespace PropertyManagement.Models
 		public string Unit { get; set; }
 		[JsonProperty(PropertyName = "lease_months")]
 		public int LeaseMonths { get; set; }
+
+        public string EmailOrPhone { get { return !string.IsNullOrEmpty(EmailAddress) ? EmailAddress : PhoneNumber; } }
 	}
 
 	public enum UserType
